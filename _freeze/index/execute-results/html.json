@@ -1,0 +1,15 @@
+{
+  "hash": "88f45f629977095913dbb6ad4a0122ed",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Personal-Website\"\n---\n\n\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nrunif(10)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n [1] 0.47461647 0.37668290 0.93186504 0.07604924 0.98830946 0.96483021\n [7] 0.76727663 0.29942172 0.89543534 0.49140153\n```\n\n\n:::\n\n```{.r .cell-code}\nrnorm(10)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n [1]  0.1776845 -1.0968900 -0.1243899  0.8404286 -1.2053506  0.5243883\n [7] -0.7221734  0.3756904  1.3316322  1.0973765\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 5\n\nx + 10 \n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 15\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

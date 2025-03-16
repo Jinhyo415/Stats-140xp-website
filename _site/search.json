@@ -9,8 +9,43 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Personal-Website",
+    "title": "Jinhyo Lee",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\n\nrunif(10)\n\n [1] 0.4319910 0.9559991 0.1938917 0.1810049 0.7539477 0.8973757 0.3861385\n [8] 0.3208247 0.9280069 0.4312756\n\nrnorm(10)\n\n [1]  0.29573280 -0.49776107 -0.84392993  0.44147680 -0.29479887  1.33343797\n [7] -0.07803753  0.27587526 -0.04659733  1.30537010"
+    "text": "Motivated data enthusiast with foundational knowledge in Python and Excel, gained through academic coursework and self- driven learning. Experienced in exploring datasets and presenting findings through clear visualizations as part of academic projects. Eager to apply data analysis skills to solve practical problems in a professional setting. Download My resume"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Jinhyo Lee",
+    "section": "Education",
+    "text": "Education\nUniversity of California, Los Angeles | BS in Statistics and Data Science | Sept 2021 - June 2025"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Jinhyo Lee",
+    "section": "Experience",
+    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Spet 2012 - April 2018"
+  },
+  {
+    "objectID": "Projects.html",
+    "href": "Projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nFeb 26, 2025\n\n\nProject1\n\n\nJinhyo Lee\n\n\n\n\nFeb 26, 2025\n\n\nProject2\n\n\nJinhyo Lee\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Projects/Project1.html",
+    "href": "Projects/Project1.html",
+    "title": "Project1",
+    "section": "",
+    "text": "rnorm(10)\n\n [1]  0.2917784  0.1168272 -0.4102172 -1.8277469  1.1744807  0.4030609\n [7] -0.4326604  0.2406948  0.5873599  0.8339192"
+  },
+  {
+    "objectID": "Projects/Project2.html",
+    "href": "Projects/Project2.html",
+    "title": "Project2",
+    "section": "",
+    "text": "rnorm(20)\n\n [1]  0.94937771 -0.20891633  0.73015561 -1.34054002  1.86971768 -0.37746944\n [7] -0.75018537  0.33031559  0.76235356  0.10556365 -2.09038770  1.27035751\n[13] -0.16471653 -1.41599770 -0.24979551 -0.44148261 -1.91851683 -1.23096799\n[19]  0.07491499 -1.42225844"
   }
 ]

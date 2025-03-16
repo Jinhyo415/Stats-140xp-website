@@ -1,0 +1,10 @@
+---
+title: "Project2"
+author: "Jinhyo Lee"
+date: "Feb 26 2025"
+---
+
+```{r}
+rnorm(20)
+```
+

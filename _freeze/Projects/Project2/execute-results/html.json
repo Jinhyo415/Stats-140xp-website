@@ -1,0 +1,15 @@
+{
+  "hash": "67380920fffb2ddab6a91979e9a7e584",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Project2\"\nauthor: \"Jinhyo Lee\"\ndate: \"Feb 26 2025\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nrnorm(20)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n [1]  0.94937771 -0.20891633  0.73015561 -1.34054002  1.86971768 -0.37746944\n [7] -0.75018537  0.33031559  0.76235356  0.10556365 -2.09038770  1.27035751\n[13] -0.16471653 -1.41599770 -0.24979551 -0.44148261 -1.91851683 -1.23096799\n[19]  0.07491499 -1.42225844\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

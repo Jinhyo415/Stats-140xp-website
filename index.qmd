@@ -1,17 +1,25 @@
 ---
-title: "Personal-Website"
+title: "Jinhyo Lee"
+about:
+  template: solana
+  image: 0.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/Jinhyo415
+    - text: Email
+      url: "mailto:dlwlsgy111@gmail.com"
 ---
 
-This is a Quarto website.
+Motivated data enthusiast with foundational knowledge in Python and Excel, gained through academic coursework and self- driven learning. Experienced in exploring datasets and presenting findings through clear visualizations as part of academic projects. Eager to apply data analysis skills to solve practical problems in a professional setting. 
+Download [My resume](/RenderCV_EngineeringResumes_Theme.pdf)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Education
 
-```{r}
-1 + 1
-```
+University of California, Los Angeles \| BS in Statistics and Data Science \| Sept 2021 - June 2025
 
-```{r}
-runif(10)
-rnorm(10)
-```
+## Experience
 
+Wengo Analytics \| Head Data Scientist \| April 2018 - present
+
+GeoScynce \| Chief Analyst \| Spet 2012 - April 2018

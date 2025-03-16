@@ -9,6 +9,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - href: Projects.qmd
+        text: Project
 
 format:
   html:
@@ -19,4 +21,7 @@ format:
     toc: true
 
 editor: visual
+
+execute:
+ freeze: auto
 
