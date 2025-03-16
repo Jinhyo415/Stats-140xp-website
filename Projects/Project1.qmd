@@ -1,7 +1,7 @@
 ---
 title: "Project1"
 author: "Jinhyo Lee"
-date: "Feb 26 2025"
+date: "March 14 2024"
 ---
 
 ## Summary: 
