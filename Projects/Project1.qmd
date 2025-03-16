@@ -4,7 +4,118 @@ author: "Jinhyo Lee"
 date: "Feb 26 2025"
 ---
 
-```{r}
-rnorm(10)
+## Summary: 
+
+The fact that the R-squared value is 0.9516 indicates that this model explains most of the price volatility of the Cellphone well. The adjusted R-squared is high at 0.949, indicating that the model explains the data well even considering the number of independent variables. The F-statistics confirm that the model is statistically significant and provide strong evidence that the selected independent variables have a significant influence on the price of the Cellphone.
+
+Looking at the contribution of each variable, the resolution was found to have a negative effect on the price, while pixel density, number of CPU cores, CPU frequency, internal memory, RAM, and battery capacity seem to contribute to the increase of the price. Thickness was analyzed to have a negative effect on the price as well as the resolution.
+
+Considering the overall model fit and flexibility of the assumption review results, it can be concluded that the model captures the key factors in pricing. This analysis will provide useful insights into future Cellphone pricing strategies.
+
+
+
+```{r, echo=FALSE,results='hide',comment= NA}
+st<-read.csv("Cellphone.csv")
+st <- st[-c(1,3)]
+library(knitr)
+library(carData)
+library(car)
+```
+## Introduction: 
+Data set: Mobile price depends on various factors such as resolution, weight, Phone Pixel Density(ppi), RAM, battery and CPU core and frequency, internal memory, camera of cellphone, thickness. Dataset is numeric value. In this dataset, we want to estimate the price of mobile phones using the above features. I set up the Price of Cellphone as response ”Y”. Other things (weight, ppi, RAM, battery..) are predictors for predicting response Y beacuse technical characteristics were judged to be important for Cellphone price prediction, variables such as resolution, CPU core, and internal memory were selected. I set the hypothesis, H0: b1 = b2 = ... = bp = 0, Ha: At least one b1 is not 0. I f H0 reject, we say this result indicated that at least one predictor contributes significantly to accounting for the variability of the response variable (cell phone price).Now we check table of summary about the data.
+```{r, echo=FALSE, results='asis'}
+summary<-summary(st)
+summary_df <- data.frame(
+  Feature = names(st),
+  Min = sapply(st, min),
+  "1st Qu." = sapply(st, quantile, probs = 0.25),
+  Median = sapply(st, median),
+  Mean = sapply(st, mean),
+  "3rd Qu."= sapply(st, quantile, probs = 0.75),
+  Max = sapply(st, max)
+)
+kable(summary_df, format = "markdown", row.names = FALSE)
 ```
 
+## Finding the Final model: 
+Now, I set up the first multiple linear regression model.The first model is full model, including response(Price) and all predictors.
+```{r, echo=FALSE,comment=NA}
+model <- lm(Price~.,data = st)
+summary(model)
+```
+Now, I see the estimators, std.error and p-value. But some predictors of this first model has large p-value. So we should do model selection for finding our final model. I use the stepwise backward method to find fitting model. Now I get the reduced model.
+
+$Y(Price)$ = $-101.9661$$\times$$x_1(resolution)$ + $1.1304$$\times$$x_2(ppi)$+ $57.9263$$\times$$x_3(cpu.core)$$+144.4653$$\times$$x_4(cpu.freq)$ + $5.2046$$\times$$x_5(internal.mem)$ +$104.1362$$\times$$x_6(ram)$+ $7.4358$$\times$$x_7(Front_Cam)$ +$0.1205$$\times$$x_8(battery)$-$81.5036$$\times$$x_9(thickness)$
+
+
+```{r, echo=FALSE,results='hide'}
+reduced_mod <- step(model, direction="backward")
+```
+
+We check the p-value and estimates about predictors. Through the p-value, I can confirm that most predictors are statistically significant(p-value < 0.05). However, only Frot_Cam(P-value is 0.123064) is not statistically significant here, the p-value is over 0.05.
+
+```{r, echo=FALSE,comment=NA}
+summary(reduced_mod)
+```
+I know from the p-value of t-test that Front_cam is not statistically significant, so I check if it has multicollinearity. If it has multicollinearity, the p-value is not a reliable result, so you can leave the predictor as it is, but if it is not, I will remove the predictor because I can trust the result of the p-value of t-test. Whether it has multicollinearity will be confirmed through a VIF test, and if the value of the VIF has a value of 5 or more, it is judged to have multicollinearity.
+
+```{r, echo=FALSE,comment=NA}
+vif(reduced_mod)
+```
+I don't think the p-value for t-test is incorrectly formed because the VIF value of Front_cam does not exceed 5. Therefore, Front_cam has been confirmed to be not statistically significant, so it is removed from the final linear model. Finally, I find the final linear regression model.
+
+
+$Y(Price)$ = $-101.9661$$\times$$x_1(resolution)$ + $1.1304$$\times$$x_2(ppi)$+ $57.9263$$\times$$x_3(cpu.core)$$+144.4653$$\times$$x_4(cpu.freq)$ + $5.2046$$\times$$x_5(internal.mem)$ +$104.1362$$\times$$x_6(ram)$ +$0.1205$$\times$$x_8(battery)$-$81.5036$$\times$$x_9(thickness)$
+
+```{r, echo=FALSE,comment=NA}
+final_mod<- lm(Price ~ resoloution + ppi + cpu.core + cpu.freq + internal.mem + 
+                  ram + battery + thickness,data = st)
+summary(final_mod)
+```
+
+## Conclusion:
+R-squared: 0.9516, which means the model can account for about 95.16% of the variationy of the data. The adjusted R-squared is 0.949, indicating that independent variables well describe the variation of Cellphone prices.
+F-statistics: 373.3 (p-value < 2.2e-16), indicating that the model as a whole is statistically significant, meaning that the set of independent variables significantly contributes to predicting the dependent variable, price.
+
+### Intercept: The base price is about 1874.25.
+### resolution: for every 1 unit increase in resolution, the price decreases by approximately 100.48(p < 0.05).
+### ppi: for every 1 unit increase in pixel density, the price increases by approximately 1.11(p < 0.05).
+### cpu.core: for every 1 unit increase in CPU cores, the price increases by approximately 63.94 (p < 0.05).
+### cpu.freq: For every 1 unit increase in CPU frequency, the price increases by approximately 135.55 (p < 0.05).
+### internal.mem: for every 1 unit increase in internal memory, the price increases by approximately 5.40 (p < 0.05).
+### ram: For every 1 unit increase in RAM, the price increases by approximately 114.68 (p < 0.05).
+### battery: for every 1 unit increase in battery capacity, the price increases by approximately 0.11 (p < 0.05).
+### thickness: for every 1 unit increase in thickness, the price decreases by approximately 82.14 (p < 0.05).
+
+The model still maintains a high coefficient of determination after excluding the front camera variable and is good at predicting cellphone prices. In particular, the number of CPU cores, RAM capacity, and CPU frequency have been shown to have a significant impact on pricing. Overall, the analysis provides useful information for cellphone manufacturers to consider technical specifications that are important in pricing.
+
+The hypothesis, H0: b1 = b2 = ... = bp = 0, Ha: At least one b1 is not 0. This is mainly addressed by the F-test. The F- statistic and its corresponding p-value (< 2.2e-16) strongly reject H0, indicating that at least one predictor contributes significantly to accounting for the variability of the response variable (cell phone price).
+
+## Diagnostics model assumption for final model
+
+```{r, echo=FALSE,comment=NA}
+par(mfrow = c(2, 2))
+plot(final_mod)
+```
+
+## Linearity:
+
+To satisfy linearity, the mean of the residuals should be zero, and the variance should be constant, regardless of the value predicted. The graph(residuals vs fitted plot) above shows that the data has a red line meandering close to the horizontal line of zero. This is not perfect, but it satisfies some linearity.
+
+## Normality :
+
+In Q-Q plot, the assumption of normality is used to verify that residuals follow a normal distribution. In the plots provided, most of the data points are arranged along the diagonal, but show some deviation from both ends. This indicates that the normality of residuals is not perfect, especially suggesting that there may be heavy tails or outliers.
+
+## Homoscedasticity:
+
+It checks by looking at Standardized residuals vs X plot. For a residual to have equal variance, it must be patternlessly distributed around the mean zero. In the horizontal line of the standardized residual plot is close to zero,  and the lot shows an upward trend where the variance of the residual seems to increase as the predicted value increases, but it is generally satisfactory.
+
+## outliers or (possible) influential points:
+
+Residuals vs Leverage plot helps identify influential cases (outliers) that can significantly influence the model's predictions. I am looking for points outside Cook's distance line. There are several points in your plot that are outside of boundaries or close to boundaries. Some data points in this graph are highlighted (e.g. 38, 168, 158), which means that those data points have relatively higher values of Cook's D than others, and thus have a greater impact on the regression model.
+
+
+
+```{r, echo=FALSE,comment=NA}
+influencePlot(final_mod)
+```

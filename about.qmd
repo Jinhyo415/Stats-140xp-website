@@ -2,8 +2,19 @@
 title: "About"
 ---
 
-About this site
+About Jinhyo Lee
 
-```{r}
-1 + 1
-```
+
+## Skills
+
+### Technical Skills
+- Programming: Beginner level of Python (Pandas, NumPy) and R
+- Data Analysis: Familiar with data cleaning, basic statistical analysis, and visualization - Visualization Tools: Microsoft Excel (charts, Pivot Tables), beginner-level Tableau
+- Tools: Google Sheets, PowerPoint for reporting
+
+
+
+### Soft Skills
+- Eager to learn and quick to adapt to new tools and environments
+- Strong attention to detail and analytical mindset
+- Effective communication and collaboration in team settings
